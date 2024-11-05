@@ -1,0 +1,133 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: #f5f5f5;
+  color: #213547;
+}
+
+.calculator-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.language-switch {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.language-switch select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+}
+
+.input-section {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.person-input {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #535bf2;
+}
+
+.results {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.result-card {
+  flex: 1;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.compatibility-section {
+  padding: 1.5rem;
+  background: #e9ecef;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.soul-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #646cff;
+  margin: 1rem 0;
+}
+
+.meaning {
+  color: #4a5568;
+  line-height: 1.6;
+}
+
+.calculation {
+  font-family: monospace;
+  background: #edf2f7;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .input-section, .results {
+    flex-direction: column;
+  }
+  
+  .calculator-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
