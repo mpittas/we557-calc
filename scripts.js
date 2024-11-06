@@ -94,7 +94,6 @@ function validateBirthDate(day, month, year) {
     year <= 9999
   );
 }
-
 function getCompatibilityMessage(num1, num2) {
   if ((num1 === 5 && num2 === 11) || (num1 === 11 && num2 === 5)) {
     return translations[currentLang].compatibility511;

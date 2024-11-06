@@ -1,18 +1,23 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
   font-weight: 400;
-  background-color: #f5f5f5;
-  color: #213547;
+  background-color: #fdf0f5;
+  color: #4a2c2a;
+  background-image: url("path/to/your/illustration.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .calculator-container {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  background: white;
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid #ddcfd4; */
 }
 
 .language-switch {
@@ -30,8 +35,9 @@
 
 h1 {
   text-align: center;
-  color: #2c3e50;
+  color: #b23a48;
   margin-bottom: 2rem;
+  font-size: 2.5rem;
 }
 
 .input-section {
@@ -49,11 +55,11 @@ h1 {
 
 input {
   padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid #ddcfd4;
   border-radius: 6px;
   font-size: 1rem;
   background-color: #ffffff;
-  color: #213547;
+  color: #4a2c2a;
 }
 
 input::-webkit-outer-spin-button,
@@ -68,7 +74,7 @@ input[type="number"] {
 
 button {
   padding: 0.8rem 1.5rem;
-  background-color: #646cff;
+  background-color: #b23a48;
   color: white;
   border: none;
   border-radius: 6px;
@@ -78,7 +84,7 @@ button {
 }
 
 button:hover {
-  background-color: #535bf2;
+  background-color: #a12e3a;
 }
 
 .results {
@@ -90,33 +96,35 @@ button:hover {
 .result-card {
   flex: 1;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: #fdf0f5;
   border-radius: 8px;
   min-height: 100px;
+  border: 1px solid #ddcfd4;
 }
 
 .compatibility-section {
   padding: 1.5rem;
-  background: #e9ecef;
+  background: #ddcfd4;
   border-radius: 8px;
   margin-top: 2rem;
+  color: #4a2c2a;
 }
 
 .soul-number {
   font-size: 2rem;
   font-weight: bold;
-  color: #646cff;
+  color: #b23a48;
   margin: 1rem 0;
 }
 
 .meaning {
-  color: #4a5568;
+  color: #4a2c2a;
   line-height: 1.6;
 }
 
 .calculation {
   font-family: monospace;
-  background: #edf2f7;
+  background: #f7e4ea;
   padding: 0.5rem;
   border-radius: 4px;
   margin: 1rem 0;
