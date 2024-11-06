@@ -2,7 +2,6 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
   background-color: #f5f5f5;
   color: #213547;
 }
@@ -53,6 +52,8 @@ input {
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 1rem;
+  background-color: #ffffff;
+  color: #213547;
 }
 
 input::-webkit-outer-spin-button,
@@ -61,7 +62,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -122,10 +123,11 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .input-section, .results {
+  .input-section,
+  .results {
     flex-direction: column;
   }
-  
+
   .calculator-container {
     margin: 1rem;
     padding: 1rem;
