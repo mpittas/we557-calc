@@ -11,7 +11,7 @@
 }
 
 .calculator-container {
-  max-width: 800px;
+  max-width: 960px;
   margin: 2rem auto;
   padding: 2rem;
   background: #fff;
@@ -102,12 +102,40 @@ button:hover {
   border: 1px solid #ddcfd4;
 }
 
-.compatibility-section {
+.compatibility-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #b23a48;
+}
+
+.compatibility-result {
+  background: #fff;
   padding: 1.5rem;
-  background: #ddcfd4;
   border-radius: 8px;
-  margin-top: 2rem;
-  color: #4a2c2a;
+  margin-bottom: 1rem;
+  border: 1px solid #dad5d6;
+}
+
+.compatibility-subtitle {
+  color: #b23a48;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.compatibility-details {
+  background: #f7e4ea;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+}
+
+.compatibility-message {
+  background: #fdf0f5;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-style: italic;
 }
 
 .soul-number {
@@ -128,6 +156,40 @@ button:hover {
   padding: 0.5rem;
   border-radius: 4px;
   margin: 1rem 0;
+}
+
+.calculation-group {
+  margin-bottom: 2rem;
+}
+
+.calculation {
+  font-family: monospace;
+  background: #f7e4ea;
+  padding: 1rem;
+  border-radius: 4px;
+  margin: 0.5rem 0;
+  border-left: 3px solid #b23a48;
+}
+
+.calculation-title {
+  font-weight: 600;
+  color: #b23a48;
+  margin-bottom: 0.5rem;
+}
+
+.calculation .result {
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px dashed #ddcfd4;
+  font-weight: 600;
+}
+
+.meaning {
+  background: #fdf0f5;
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+  border-left: 3px solid #b23a48;
 }
 
 @media (max-width: 768px) {

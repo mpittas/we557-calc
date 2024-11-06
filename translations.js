@@ -8,7 +8,7 @@ export const translations = {
     birthMonth: "Месец на раждане (1-12)",
     birthYear: "Година на раждане (напр. 1990)",
     calculate: "Изчисли",
-    soulNumber: "Душевно число",
+    soulNumber: "число",
     calculation: "Изчисление",
     compatibility: "Съвместимост на Душевните Числа",
     compatibilityFor: "Съвместимост между",
