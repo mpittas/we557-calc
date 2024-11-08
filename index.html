@@ -9,16 +9,65 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 1rem;
+      }
+
+      .mesh-gradient {
+        background-color: #0f172a;
+        background-image: radial-gradient(
+            at 40% 20%,
+            rgba(124, 58, 237, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 80% 0%,
+            rgba(219, 39, 119, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 50%,
+            rgba(59, 130, 246, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 80% 50%,
+            rgba(236, 72, 153, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(34, 197, 94, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 80% 100%,
+            rgba(168, 85, 247, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 0%,
+            rgba(99, 102, 241, 0.1) 0px,
+            transparent 50%
+          );
+      }
+    </style>
   </head>
-  <body class="bg-gray-900 min-h-screen font-['Inter']">
+  <body
+    class="bg-gradient-to-br from-gray-900 to-gray-800 min-h-screen font-['Inter']"
+  >
     <div
       id="app"
-      class="flex flex-col lg:flex-row min-h-screen p-4 gap-6 max-w-[1920px] mx-auto"
+      class="flex flex-col lg:flex-row min-h-screen p-4 gap-6 max-w-[1920px] mx-auto mesh-gradient"
     >
       <!-- Left Side - Calculator -->
-      <div class="w-full lg:w-1/4 bg-white rounded-lg shadow-lg p-4 md:p-8">
+      <div class="w-full lg:w-1/4 glass text-white p-4 md:p-8">
         <h1
-          class="text-2xl md:text-3xl text-pink-700 font-bold text-center mb-6 md:mb-8"
+          class="text-2xl md:text-3xl text-white font-bold text-center mb-6 md:mb-8"
         >
           Калкулатор
         </h1>
@@ -28,20 +77,20 @@
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
             <!-- Name input with label -->
             <div class="col-span-2 md:col-span-4 space-y-1">
-              <label for="name1" class="block text-sm font-medium text-gray-700"
+              <label for="name1" class="block text-sm font-medium text-gray-200"
                 >Име</label
               >
               <input
                 type="text"
                 id="name1"
                 placeholder="Въведете първо име"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
 
             <!-- Day input with label -->
             <div class="space-y-1">
-              <label for="day1" class="block text-sm font-medium text-gray-700"
+              <label for="day1" class="block text-sm font-medium text-gray-200"
                 >Ден</label
               >
               <input
@@ -50,7 +99,7 @@
                 placeholder="Ден"
                 min="1"
                 max="31"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
 
@@ -58,7 +107,7 @@
             <div class="space-y-1">
               <label
                 for="month1"
-                class="block text-sm font-medium text-gray-700"
+                class="block text-sm font-medium text-gray-200"
                 >Месец</label
               >
               <input
@@ -67,13 +116,13 @@
                 placeholder="Месец"
                 min="1"
                 max="12"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
 
             <!-- Year input with label -->
             <div class="col-span-2 space-y-1">
-              <label for="year1" class="block text-sm font-medium text-gray-700"
+              <label for="year1" class="block text-sm font-medium text-gray-200"
                 >Година</label
               >
               <input
@@ -82,13 +131,13 @@
                 placeholder="Година"
                 min="1000"
                 max="9999"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
           </div>
           <button
             id="calculate1"
-            class="w-full bg-pink-600 text-white py-2 md:py-3 px-4 rounded-lg hover:bg-pink-700 transition-colors font-semibold shadow-md hover:shadow-lg text-sm md:text-base"
+            class="w-full text-white py-2 md:py-3 px-4 bg-violet-600 hover:bg-violet-700 active:bg-white/40 transition-all duration-200 font-semibold text-sm md:text-base rounded-lg backdrop-blur-sm"
           >
             Изчисли
           </button>
@@ -99,20 +148,20 @@
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
             <!-- Name input with label -->
             <div class="col-span-2 md:col-span-4 space-y-1">
-              <label for="name2" class="block text-sm font-medium text-gray-700"
+              <label for="name2" class="block text-sm font-medium text-gray-200"
                 >Име</label
               >
               <input
                 type="text"
                 id="name2"
                 placeholder="Въведете второ име"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
 
             <!-- Day input with label -->
             <div class="space-y-1">
-              <label for="day2" class="block text-sm font-medium text-gray-700"
+              <label for="day2" class="block text-sm font-medium text-gray-200"
                 >Ден</label
               >
               <input
@@ -121,7 +170,7 @@
                 placeholder="Ден"
                 min="1"
                 max="31"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
 
@@ -129,7 +178,7 @@
             <div class="space-y-1">
               <label
                 for="month2"
-                class="block text-sm font-medium text-gray-700"
+                class="block text-sm font-medium text-gray-200"
                 >Месец</label
               >
               <input
@@ -138,13 +187,13 @@
                 placeholder="Месец"
                 min="1"
                 max="12"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
 
             <!-- Year input with label -->
             <div class="col-span-2 space-y-1">
-              <label for="year2" class="block text-sm font-medium text-gray-700"
+              <label for="year2" class="block text-sm font-medium text-gray-200"
                 >Година</label
               >
               <input
@@ -153,13 +202,13 @@
                 placeholder="Година"
                 min="1000"
                 max="9999"
-                class="w-full p-2 md:p-3 border border-pink-200 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none text-sm md:text-base"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
           </div>
           <button
             id="calculate2"
-            class="w-full bg-pink-600 text-white py-2 md:py-3 px-4 rounded-lg hover:bg-pink-700 transition-colors font-semibold shadow-md hover:shadow-lg text-sm md:text-base"
+            class="w-full text-white py-2 md:violet-600-4 bg-violet-600 hover:bg-violet-700 transition-colors font-semibold text-sm md:text-base rounded-lg"
           >
             Изчисли
           </button>
@@ -168,24 +217,15 @@
 
       <!-- Right Side - Results -->
       <div class="w-full lg:w-3/4 space-y-6">
-        <div class="bg-white rounded-lg shadow-lg p-4 md:p-8 h-full">
+        <div class="glass text-white p-4 md:p-8 h-full">
           <!-- Results Cards -->
           <div class="flex flex-col md:flex-row gap-4 md:gap-6 mb-4 md:mb-8">
-            <div
-              id="result1"
-              class="flex-1 bg-gradient-to-r from-pink-50 to-white p-4 md:p-6 rounded-lg border border-pink-100"
-            ></div>
-            <div
-              id="result2"
-              class="flex-1 bg-gradient-to-r from-pink-50 to-white p-4 md:p-6 rounded-lg border border-pink-100"
-            ></div>
+            <div id="result1" class="flex-1"></div>
+            <div id="result2" class="flex-1"></div>
           </div>
 
           <!-- Compatibility Section -->
-          <div
-            id="compatibility"
-            class="bg-gradient-to-r from-pink-50 to-white p-4 md:p-6 rounded-lg border border-pink-100"
-          >
+          <div id="compatibility" class="flex-1">
             <!-- Content will be dynamically inserted here -->
           </div>
         </div>

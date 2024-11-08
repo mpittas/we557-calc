@@ -59,7 +59,7 @@ export function calculatePersonSoulNumber(personNum) {
   const initialSum = calculateInitialSum(day, month, year);
   const soulNumber = calculateSoulNumber(initialSum);
 
-  // Изчисляване на число от дата на раждане
+  // Calculate date of birth number
   let dateOfBirthNumber = day;
   let dateOfBirthCalculation = `${day}`;
   if (dateOfBirthNumber === 13) {
@@ -67,7 +67,7 @@ export function calculatePersonSoulNumber(personNum) {
     dateOfBirthCalculation = "1 + 3 = 4";
   }
 
-  // Изчисляване на сума от дата и месец
+  // Calculate date and month sum
   let dateMonthSum = day + month;
   let dateMonthCalculation = `${day} + ${month} = ${dateMonthSum}`;
   if (dateMonthSum > 9) {
@@ -79,16 +79,16 @@ export function calculatePersonSoulNumber(personNum) {
 
   resultDiv.innerHTML = `
     <div>
-      <div class="flex items-center justify-between border-b border-pink-200 pb-4 mb-4">
-        <h3 class="text-2xl font-bold text-gray-800">${name}</h3>
+      <div class="flex items-center justify-between pb-4">
+        <h3 class="text-2xl font-bold text-gray-100">${name}</h3>
       </div>
       
       <div class="space-y-6">
         <!-- First Calculation -->
-        <div class="bg-white/80 backdrop-blur rounded-xl p-5 shadow-sm">
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <h4 class="text-lg font-semibold text-gray-800">Съдбовно число</h4>
+              <h4 class="text-lg font-semibold text-gray-100">Съдбовно число</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
@@ -98,20 +98,20 @@ export function calculatePersonSoulNumber(personNum) {
                 </div>
               </div>
             </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-pink-500 text-white text-sm rounded-full font-bold">
+            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
               ${soulNumber}
             </div>
           </div>
-          <div class="font-mono bg-gradient-to-r from-pink-50 to-white p-4 rounded-lg text-gray-800 shadow-inner border border-pink-100">
+          <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
             ${formatCalculation(dateString, initialSum, soulNumber)}
           </div>
         </div>
 
         <!-- Second Calculation -->
-        <div class="bg-white/80 backdrop-blur rounded-xl p-5 shadow-sm">
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <h4 class="text-lg font-semibold text-gray-800">Число на душата</h4>
+              <h4 class="text-lg font-semibold text-gray-100">Число на душата</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
@@ -121,34 +121,34 @@ export function calculatePersonSoulNumber(personNum) {
                 </div>
               </div>
             </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-pink-500 text-white text-sm rounded-full font-bold">
+            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
               ${dateOfBirthNumber}
             </div>
           </div>
-          <div class="font-mono bg-gradient-to-r from-pink-50 to-white p-4 rounded-lg text-gray-800 shadow-inner border border-pink-100">
+          <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
             ${dateOfBirthCalculation}
           </div>
         </div>
 
         <!-- Third Calculation -->
-        <div class="bg-white/80 backdrop-blur rounded-xl p-5 shadow-sm">
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <h4 class="text-lg font-semibold text-gray-800">Сума от дата и месец</h4>
+              <h4 class="text-lg font-semibold text-gray-100">Сума от дата и месец</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
                 </svg>
                 <div class="invisible group-hover:visible absolute left-0 top-6 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10">
-                  Сборът от деня и месеца на раждане, редуциран ако е по-голям от 9
+                  Сборът от деня и месеца на раждане
                 </div>
               </div>
             </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-pink-500 text-white text-sm rounded-full font-bold">
+            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
               ${dateMonthSum}
             </div>
           </div>
-          <div class="font-mono bg-gradient-to-r from-pink-50 to-white p-4 rounded-lg text-gray-800 shadow-inner border border-pink-100">
+          <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
             ${dateMonthCalculation}
           </div>
         </div>
@@ -156,12 +156,23 @@ export function calculatePersonSoulNumber(personNum) {
     </div>
   `;
 
-  updateCompatibility();
+  // Store the calculated data
+  const personData = { name, day, month, year, soulNumber };
+  if (personNum === 1) {
+    window.person1Data = personData;
+  } else {
+    window.person2Data = personData;
+  }
+
+  // Update compatibility if both calculations are done
+  if (window.person1Data && window.person2Data) {
+    updateCompatibility();
+  }
 }
 
 function getCompatibilityDescription(number) {
   const descriptions = {
-    1: "Число 1 е лидер и иноватор, обича независимостта и амбицията.",
+    1: "Число 1 е лиде�� и иноватор, обича независимостта и амбицията.",
     2: "Число 2 е дипломатично и кооперативно, цени хармонията и партньорството.",
     3: "Число 3 е креативно и социално, обича изразяването и оптимизма.",
     4: "Число 4 е стабилно и практично, обича реда и сигурността.",
@@ -177,153 +188,99 @@ function getCompatibilityDescription(number) {
 }
 
 export function updateCompatibility() {
-  const result1 = document.getElementById("result1");
-  const result2 = document.getElementById("result2");
   const compatibilityDiv = document.getElementById("compatibility");
 
-  if (!result1.innerHTML || !result2.innerHTML) return;
+  if (!window.person1Data || !window.person2Data) {
+    return;
+  }
 
-  // Get soul numbers (from the first calculation)
-  const soulNumber1 = parseInt(
-    result1.querySelector(".bg-pink-500").textContent.trim()
-  );
-  const soulNumber2 = parseInt(
-    result2.querySelector(".bg-pink-500").textContent.trim()
-  );
+  const person1 = window.person1Data;
+  const person2 = window.person2Data;
 
-  // Get birth date numbers (from the second calculation)
-  const birthNumber1 = parseInt(
-    result1.querySelectorAll(".font-mono")[1].textContent.split("=").pop()
-  );
-  const birthNumber2 = parseInt(
-    result2.querySelectorAll(".font-mono")[1].textContent.split("=").pop()
-  );
-
-  // Get date-month sum numbers (from the third calculation)
-  const dateMonthNumber1 = parseInt(
-    result1.querySelectorAll(".font-mono")[2].textContent.split("=").pop()
-  );
-  const dateMonthNumber2 = parseInt(
-    result2.querySelectorAll(".font-mono")[2].textContent.split("=").pop()
-  );
-
-  const name1 = result1.querySelector(".text-2xl").textContent;
-  const name2 = result2.querySelector(".text-2xl").textContent;
+  const compatibility = {
+    score: calculateCompatibilityScore(person1.soulNumber, person2.soulNumber),
+    description: getCompatibilityDescription(
+      calculateCompatibilityScore(person1.soulNumber, person2.soulNumber)
+    ),
+  };
 
   compatibilityDiv.innerHTML = `
-    <div class="space-y-8">
-      <div class="flex items-center justify-between border-b border-pink-200 pb-4">
-        <h3 class="text-2xl font-bold text-gray-800">Съвместимост на числата</h3>
+    <h2 class="text-xl md:text-2xl font-bold mb-4">Съвместимост</h2>
+    <div class="space-y-4">
+      <div class="flex items-center gap-4">
+        <div class="text-4xl font-bold text-violet-400 opacity-0 transition-opacity duration-500" id="compatScore">
+          ${compatibility.score}%
+        </div>
+        <div class="h-2 flex-1 bg-white/10 rounded-full overflow-hidden">
+          <div class="h-full bg-violet-400 rounded-full w-0 transition-all duration-1000 ease-out" id="compatBar"></div>
+        </div>
       </div>
-      
-      <div class="space-y-8">
-        <!-- First Compatibility Section -->
-        <div class="bg-white/80 backdrop-blur rounded-xl p-6 shadow-sm">
-          <div class="flex items-center gap-3 mb-6">
-            <div>
-              <h4 class="text-xl font-semibold text-gray-800">Съвместимост на Съдбовните Числа</h4>
-              <p class="text-gray-600 text-sm mt-1">Числа ${soulNumber1} и ${soulNumber2}</p>
-            </div>
-          </div>
-          
-          <div class="space-y-4">
-            <div class="bg-gradient-to-r from-pink-50 to-white p-5 rounded-lg border border-pink-100">
-              <p class="text-gray-800 mb-4">
-                <span class="font-semibold text-gray-700">${name1}:</span> 
-                <span class="text-gray-700">${getCompatibilityDescription(
-                  soulNumber1
-                )}</span>
-              </p>
-              <p class="text-gray-800">
-                <span class="font-semibold text-gray-700">${name2}:</span> 
-                <span class="text-gray-700">${getCompatibilityDescription(
-                  soulNumber2
-                )}</span>
-              </p>
-            </div>
-            <div class="bg-pink-50/80 backdrop-blur p-5 rounded-lg text-gray-700 italic border border-pink-100">
-              ${getCompatibilityMessage(
-                soulNumber1,
-                soulNumber2,
-                translations,
-                currentLang
-              )}
-            </div>
-          </div>
+      <p class="text-gray-200 opacity-0 transition-opacity duration-500 delay-500" id="compatDesc">
+        ${compatibility.description}
+      </p>
+      <div class="grid grid-cols-2 gap-4 mt-4 opacity-0 transition-opacity duration-500 delay-700" id="compatDetails">
+        <div>
+          <span class="text-gray-400">Житейски път ${person1.name}:</span>
+          <span class="ml-2 font-bold">${person1.soulNumber}</span>
         </div>
-
-        <!-- Second Compatibility Section -->
-        <div class="bg-white/80 backdrop-blur rounded-xl p-6 shadow-sm">
-          <div class="flex items-center gap-3 mb-6">
-            <div>
-              <h4 class="text-xl font-semibold text-gray-800">Съвместимост на Числата от Дата на Раждане</h4>
-              <p class="text-gray-600 text-sm mt-1">Числа ${birthNumber1} и ${birthNumber2}</p>
-            </div>
-          </div>
-          
-          <div class="space-y-4">
-            <div class="bg-gradient-to-r from-pink-50 to-white p-5 rounded-lg border border-pink-100">
-              <p class="text-gray-800 mb-4">
-                <span class="font-semibold text-gray-700">${name1}:</span> 
-                <span class="text-gray-700">${getCompatibilityDescription(
-                  birthNumber1
-                )}</span>
-              </p>
-              <p class="text-gray-800">
-                <span class="font-semibold text-gray-700">${name2}:</span> 
-                <span class="text-gray-700">${getCompatibilityDescription(
-                  birthNumber2
-                )}</span>
-              </p>
-            </div>
-            <div class="bg-pink-50/80 backdrop-blur p-5 rounded-lg text-gray-700 italic border border-pink-100">
-              ${getCompatibilityMessage(
-                birthNumber1,
-                birthNumber2,
-                translations,
-                currentLang
-              )}
-            </div>
-          </div>
-        </div>
-
-        <!-- Third Compatibility Section -->
-        <div class="bg-white/80 backdrop-blur rounded-xl p-6 shadow-sm">
-          <div class="flex items-center gap-3 mb-6">
-            <div>
-              <h4 class="text-xl font-semibold text-gray-800">Съвместимост на Сумите от Дата и Месец</h4>
-              <p class="text-gray-600 text-sm mt-1">Числа ${dateMonthNumber1} и ${dateMonthNumber2}</p>
-            </div>
-          </div>
-          
-          <div class="space-y-4">
-            <div class="bg-gradient-to-r from-pink-50 to-white p-5 rounded-lg border border-pink-100">
-              <p class="text-gray-800 mb-4">
-                <span class="font-semibold text-gray-700">${name1}:</span> 
-                <span class="text-gray-700">${getCompatibilityDescription(
-                  dateMonthNumber1
-                )}</span>
-              </p>
-              <p class="text-gray-800">
-                <span class="font-semibold text-gray-700">${name2}:</span> 
-                <span class="text-gray-700">${getCompatibilityDescription(
-                  dateMonthNumber2
-                )}</span>
-              </p>
-            </div>
-            <div class="bg-pink-50/80 backdrop-blur p-5 rounded-lg text-gray-700 italic border border-pink-100">
-              ${getCompatibilityMessage(
-                dateMonthNumber1,
-                dateMonthNumber2,
-                translations,
-                currentLang
-              )}
-            </div>
-          </div>
+        <div>
+          <span class="text-gray-400">Житейски път ${person2.name}:</span>
+          <span class="ml-2 font-bold">${person2.soulNumber}</span>
         </div>
       </div>
     </div>
   `;
+
+  // Trigger animations after a short delay
+  setTimeout(() => {
+    const compatScore = document.getElementById("compatScore");
+    const compatBar = document.getElementById("compatBar");
+    const compatDesc = document.getElementById("compatDesc");
+    const compatDetails = document.getElementById("compatDetails");
+
+    // Animate score and progress bar
+    compatScore.classList.remove("opacity-0");
+    compatBar.style.width = `${compatibility.score}%`;
+
+    // Animate description and details
+    compatDesc.classList.remove("opacity-0");
+    compatDetails.classList.remove("opacity-0");
+  }, 100);
+}
+
+function calculateCompatibilityScore(num1, num2) {
+  // Basic compatibility matrix
+  const compatibilityMatrix = {
+    1: { 1: 80, 2: 60, 3: 90, 4: 65, 5: 85, 6: 75, 7: 85, 8: 70, 9: 95 },
+    2: { 1: 60, 2: 85, 3: 65, 4: 90, 5: 70, 6: 95, 7: 65, 8: 85, 9: 70 },
+    3: { 1: 90, 2: 65, 3: 80, 4: 70, 5: 95, 6: 75, 7: 85, 8: 70, 9: 85 },
+    4: { 1: 65, 2: 90, 3: 70, 4: 85, 5: 75, 6: 80, 7: 70, 8: 95, 9: 65 },
+    5: { 1: 85, 2: 70, 3: 95, 4: 75, 5: 85, 6: 70, 7: 90, 8: 75, 9: 80 },
+    6: { 1: 75, 2: 95, 3: 75, 4: 80, 5: 70, 6: 85, 7: 65, 8: 80, 9: 90 },
+    7: { 1: 85, 2: 65, 3: 85, 4: 70, 5: 90, 6: 65, 7: 90, 8: 75, 9: 75 },
+    8: { 1: 70, 2: 85, 3: 70, 4: 95, 5: 75, 6: 80, 7: 75, 8: 85, 9: 80 },
+    9: { 1: 95, 2: 70, 3: 85, 4: 65, 5: 80, 6: 90, 7: 75, 8: 80, 9: 85 },
+  };
+
+  // Normalize numbers to 1-9 range if needed
+  const norm1 =
+    num1 > 9
+      ? Number(
+          String(num1)
+            .split("")
+            .reduce((a, b) => Number(a) + Number(b), 0)
+        )
+      : num1;
+  const norm2 =
+    num2 > 9
+      ? Number(
+          String(num2)
+            .split("")
+            .reduce((a, b) => Number(a) + Number(b), 0)
+        )
+      : num2;
+
+  return compatibilityMatrix[norm1]?.[norm2] || 70;
 }
 
 function getRandomName() {
