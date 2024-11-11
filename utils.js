@@ -21,12 +21,53 @@ export function calculateSoulNumber(num) {
 }
 
 export function formatCalculation(dateString, initialSum, soulNumber) {
-  const firstEquation = `${dateString.split("").join(" + ")} = ${initialSum}`;
-  const secondEquation =
-    initialSum > 12
-      ? ` → ${initialSum.toString().split("").join(" + ")} = ${soulNumber}`
-      : "";
-  return firstEquation + secondEquation;
+  // First equation: showing all digits being added with actual sum
+  const digits = dateString.split("");
+  let runningSum = 0;
+  const firstSteps = digits
+    .map((digit, index) => {
+      runningSum += parseInt(digit);
+      if (index === digits.length - 1) {
+        return `${digit} = ${runningSum}`;
+      }
+      return digit;
+    })
+    .join(" + ");
+
+  // Second equation: if needed, show the actual addition of digits
+  let secondEquation = "";
+  if (runningSum > 12) {
+    const initialSumDigits = runningSum.toString().split("");
+    let secondRunningSum = 0;
+    const secondSteps = initialSumDigits
+      .map((digit, index) => {
+        secondRunningSum += parseInt(digit);
+        if (index === initialSumDigits.length - 1) {
+          return `${digit} = ${secondRunningSum}`;
+        }
+        return digit;
+      })
+      .join(" + ");
+    secondEquation = ` → ${secondSteps}`;
+
+    // If we need a third reduction
+    if (secondRunningSum > 12) {
+      const secondSumDigits = secondRunningSum.toString().split("");
+      let finalSum = 0;
+      const finalSteps = secondSumDigits
+        .map((digit, index) => {
+          finalSum += parseInt(digit);
+          if (index === secondSumDigits.length - 1) {
+            return `${digit} = ${finalSum}`;
+          }
+          return digit;
+        })
+        .join(" + ");
+      secondEquation += ` → ${finalSteps}`;
+    }
+  }
+
+  return firstSteps + secondEquation;
 }
 
 export function validateBirthDate(day, month, year) {

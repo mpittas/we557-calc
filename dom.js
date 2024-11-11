@@ -67,14 +67,46 @@ export function calculatePersonSoulNumber(personNum) {
     dateOfBirthCalculation = "1 + 3 = 4";
   }
 
-  // Calculate date and month sum
-  let dateMonthSum = day + month;
-  let dateMonthCalculation = `${day} + ${month} = ${dateMonthSum}`;
+  // Calculate date and month sum with detailed steps
+  let dateMonthSum = 0;
+  let dateMonthCalculation = "";
+
+  // First step: adding day and month
+  dateMonthSum = day + month;
+  dateMonthCalculation = `${day} + ${month} = ${dateMonthSum}`;
+
+  // Second step: if sum is greater than 9, reduce it
   if (dateMonthSum > 9) {
-    dateMonthCalculation += ` → ${dateMonthSum
-      .toString()
-      .split("")
-      .join(" + ")} = ${dateMonthSum}`;
+    const digits = dateMonthSum.toString().split("");
+    let reducedSum = 0;
+    const reductionSteps = digits
+      .map((digit, index) => {
+        reducedSum += parseInt(digit);
+        if (index === digits.length - 1) {
+          return `${digit} = ${reducedSum}`;
+        }
+        return digit;
+      })
+      .join(" + ");
+    dateMonthCalculation += ` → ${reductionSteps}`;
+    dateMonthSum = reducedSum;
+
+    // Third step: if still greater than 9, reduce again
+    if (reducedSum > 9) {
+      const finalDigits = reducedSum.toString().split("");
+      let finalSum = 0;
+      const finalSteps = finalDigits
+        .map((digit, index) => {
+          finalSum += parseInt(digit);
+          if (index === finalDigits.length - 1) {
+            return `${digit} = ${finalSum}`;
+          }
+          return digit;
+        })
+        .join(" + ");
+      dateMonthCalculation += ` → ${finalSteps}`;
+      dateMonthSum = finalSum;
+    }
   }
 
   resultDiv.innerHTML = `
@@ -134,9 +166,6 @@ export function calculatePersonSoulNumber(personNum) {
         <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
-                ${dateMonthSum}
-              </div>  
               <h4 class="text-lg font-semibold text-gray-100">Сума от дата и месец</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,6 +175,9 @@ export function calculatePersonSoulNumber(personNum) {
                   Сборът от деня и месеца на раждане
                 </div>
               </div>
+            </div>
+            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
+              ${dateMonthSum}
             </div>
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
