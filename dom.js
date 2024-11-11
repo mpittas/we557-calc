@@ -88,6 +88,9 @@ export function calculatePersonSoulNumber(personNum) {
         <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
+                ${soulNumber}
+              </div>  
               <h4 class="text-lg font-semibold text-gray-100">Съдбовно число</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -97,9 +100,6 @@ export function calculatePersonSoulNumber(personNum) {
                   Сборът от всички цифри в датата на раждане, редуциран до едноцифрено число
                 </div>
               </div>
-            </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
-              ${soulNumber}
             </div>
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
@@ -111,6 +111,9 @@ export function calculatePersonSoulNumber(personNum) {
         <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
+                ${dateOfBirthNumber}
+              </div>  
               <h4 class="text-lg font-semibold text-gray-100">Число на душата</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -120,9 +123,6 @@ export function calculatePersonSoulNumber(personNum) {
                   Числото от деня на раждане, редуцирано ако е по-голямо от 9
                 </div>
               </div>
-            </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
-              ${dateOfBirthNumber}
             </div>
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
@@ -134,6 +134,9 @@ export function calculatePersonSoulNumber(personNum) {
         <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
+                ${dateMonthSum}
+              </div>  
               <h4 class="text-lg font-semibold text-gray-100">Сума от дата и месец</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,9 +146,6 @@ export function calculatePersonSoulNumber(personNum) {
                   Сборът от деня и месеца на раждане
                 </div>
               </div>
-            </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
-              ${dateMonthSum}
             </div>
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
@@ -172,19 +172,80 @@ export function calculatePersonSoulNumber(personNum) {
 
 function getCompatibilityDescription(number) {
   const descriptions = {
-    1: "Число 1 е лиде�� и иноватор, обича независимостта и амбицията.",
-    2: "Число 2 е дипломатично и кооперативно, цени хармонията и партньорството.",
-    3: "Число 3 е креативно и социално, обича изразяването и оптимизма.",
-    4: "Число 4 е стабилно и практично, обича реда и сигурността.",
-    5: "Число 5 е авантюристично и гъвкаво, цени свободата и разнообразието.",
-    6: "Число 6 е грижовно и отговорно, обича хармонията и семейството.",
-    7: "Число 7 е аналитично и духовно, обича интроспекцията и философията.",
-    8: "Число 8 е амбициозно и влиятелно, обича успеха и материалните постижения.",
-    9: "Число 9 е състрадателно и идеалистично, обича да помага на другите и да се чувства част от общността.",
-    11: "Число 11 е интуитивно и духовно, обича дълбоките връзки и интуицията.",
-    22: "Число 22 е майстор строител, практичен визионер и мощен постигащ.",
+    1: {
+      title: "Съдбовно число 1",
+      character: "Лидери, амбициозни, самоуверени.",
+      strengths: "Инициативност, смелост, оригиналност.",
+      challenges: "Склонност към егоизъм и доминиране.",
+      professions: "Лидери, предприемачи, мениджъри.",
+    },
+    2: {
+      title: "Съдбовно число 2",
+      character: "Спокойни, дипломатични, интуитивни.",
+      strengths: "Дипломатичност, сътрудничество, чувствителност.",
+      challenges: "Нерешителност и зависимост от другите.",
+      professions: "Консултанти, психолози, дипломати.",
+    },
+    3: {
+      title: "Съдбовно число 3",
+      character: "Творчески, оптимистични, изразителни.",
+      strengths: "Общителност, креативност, чувство за хумор.",
+      challenges: "Непостоянство и разпиляност.",
+      professions: "Артисти, писатели, комуникатори.",
+    },
+    4: {
+      title: "Съдбовно число 4",
+      character: "Практични, трудолюбиви, стабилни.",
+      strengths: "Надеждност, организираност, дисциплина.",
+      challenges: "Консерватизъм и твърдост.",
+      professions: "Инженери, строители, администратори.",
+    },
+    5: {
+      title: "Съдбовно число 5",
+      character: "Свободолюбиви, любопитни, адаптивни.",
+      strengths: "Енергия, приспособимост, жажда за нови преживявания.",
+      challenges: "Непостоянство и липса на фокус.",
+      professions: "Пътешественици, писатели, медии.",
+    },
+    6: {
+      title: "Съдбовно число 6",
+      character: "Грижовни, отговорни, обичащи хармонията.",
+      strengths: "Отдаденост, чувствителност към нуждите на другите.",
+      challenges: "Прекалено желание да угодят на всички.",
+      professions: "Лекари, учители, социални работници.",
+    },
+    7: {
+      title: "Съдбовно число 7",
+      character: "Мистични, интелектуални, търсещи.",
+      strengths: "Дълбока мисъл, интуиция, философски дух.",
+      challenges: "Изолация и склонност към прекомерно вглъбяване.",
+      professions: "Учени, изследователи, философи.",
+    },
+    8: {
+      title: "Съдбовно число 8",
+      character: "Амбициозни, властни, материално ориентирани.",
+      strengths: "Практичност, стремеж към успех, издръжливост.",
+      challenges: "Склонност към прекален материализъм и контрол.",
+      professions: "Бизнесмени, финансисти, администратори.",
+    },
+    9: {
+      title: "Съдбовно число 9",
+      character: "Идеалисти, хуманисти, състрадателни.",
+      strengths: "Състрадание, щедрост, глобално мислене.",
+      challenges: "Склонност към саможертва и прекалена емоционалност.",
+      professions: "Филантропи, артисти, терапевти.",
+    },
   };
-  return descriptions[number] || "Няма описание за това число.";
+
+  return (
+    descriptions[number] || {
+      title: "Няма описание",
+      character: "Няма информация",
+      strengths: "Няма информация",
+      challenges: "Няма информация",
+      professions: "Няма информация",
+    }
+  );
 }
 
 export function updateCompatibility() {
@@ -196,17 +257,16 @@ export function updateCompatibility() {
 
   const person1 = window.person1Data;
   const person2 = window.person2Data;
+  const person1Desc = getCompatibilityDescription(person1.soulNumber);
+  const person2Desc = getCompatibilityDescription(person2.soulNumber);
 
   const compatibility = {
     score: calculateCompatibilityScore(person1.soulNumber, person2.soulNumber),
-    description: getCompatibilityDescription(
-      calculateCompatibilityScore(person1.soulNumber, person2.soulNumber)
-    ),
   };
 
   compatibilityDiv.innerHTML = `
     <h2 class="text-xl md:text-2xl font-bold mb-4">Съвместимост</h2>
-    <div class="space-y-4">
+    <div class="space-y-6">
       <div class="flex items-center gap-4">
         <div class="text-4xl font-bold text-violet-400 opacity-0 transition-opacity duration-500" id="compatScore">
           ${compatibility.score}%
@@ -215,17 +275,68 @@ export function updateCompatibility() {
           <div class="h-full bg-violet-400 rounded-full w-0 transition-all duration-1000 ease-out" id="compatBar"></div>
         </div>
       </div>
-      <p class="text-gray-200 opacity-0 transition-opacity duration-500 delay-500" id="compatDesc">
-        ${compatibility.description}
-      </p>
-      <div class="grid grid-cols-2 gap-4 mt-4 opacity-0 transition-opacity duration-500 delay-700" id="compatDetails">
-        <div>
-          <span class="text-gray-400">Житейски път ${person1.name}:</span>
-          <span class="ml-2 font-bold">${person1.soulNumber}</span>
+
+      <div class="grid md:grid-cols-2 gap-6 opacity-0 transition-opacity duration-500 delay-700" id="compatDetails">
+        <!-- Person 1 Details -->
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
+            <h3 class="text-lg font-semibold">${person1.name}</h3>
+            <div class="flex items-center gap-2">
+              <span class="text-gray-400">Съдбовно число:</span>
+              <span class="w-8 h-8 flex items-center justify-center bg-violet-600 text-white rounded-full font-bold">
+                ${person1.soulNumber}
+              </span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="text-violet-400 font-medium">Характер</div>
+              <div class="text-gray-200">${person1Desc.character}</div>
+            </div>
+            <div>
+              <div class="text-violet-400 font-medium">Силни страни</div>
+              <div class="text-gray-200">${person1Desc.strengths}</div>
+            </div>
+            <div>
+              <div class="text-violet-400 font-medium">Предизвикателства</div>
+              <div class="text-gray-200">${person1Desc.challenges}</div>
+            </div>
+            <div>
+              <div class="text-violet-400 font-medium">Професии</div>
+              <div class="text-gray-200">${person1Desc.professions}</div>
+            </div>
+          </div>
         </div>
-        <div>
-          <span class="text-gray-400">Житейски път ${person2.name}:</span>
-          <span class="ml-2 font-bold">${person2.soulNumber}</span>
+
+        <!-- Person 2 Details -->
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5 space-y-4">
+          <div class="flex items-center justify-between mb-4 pb-4 border-b border-white/10">
+            <h3 class="text-lg font-semibold">${person2.name}</h3>
+            <div class="flex items-center gap-2">
+              <span class="text-gray-400">Съдбовно число:</span>
+              <span class="w-8 h-8 flex items-center justify-center bg-violet-600 text-white rounded-full font-bold">
+                ${person2.soulNumber}
+              </span>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="text-violet-400 font-medium">Характер</div>
+              <div class="text-gray-200">${person2Desc.character}</div>
+            </div>
+            <div>
+              <div class="text-violet-400 font-medium">Силни страни</div>
+              <div class="text-gray-200">${person2Desc.strengths}</div>
+            </div>
+            <div>
+              <div class="text-violet-400 font-medium">Предизвикателства</div>
+              <div class="text-gray-200">${person2Desc.challenges}</div>
+            </div>
+            <div>
+              <div class="text-violet-400 font-medium">Професии</div>
+              <div class="text-gray-200">${person2Desc.professions}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -235,15 +346,10 @@ export function updateCompatibility() {
   setTimeout(() => {
     const compatScore = document.getElementById("compatScore");
     const compatBar = document.getElementById("compatBar");
-    const compatDesc = document.getElementById("compatDesc");
     const compatDetails = document.getElementById("compatDetails");
 
-    // Animate score and progress bar
     compatScore.classList.remove("opacity-0");
     compatBar.style.width = `${compatibility.score}%`;
-
-    // Animate description and details
-    compatDesc.classList.remove("opacity-0");
     compatDetails.classList.remove("opacity-0");
   }, 100);
 }
