@@ -66,33 +66,8 @@ export function calculatePersonSoulNumber(personNum) {
         return digit;
       })
       .join(" + ");
-
-    // If still greater than 9, reduce again
-    if (reducedSum > 9) {
-      const finalDigits = reducedSum.toString().split("");
-      let finalSum = 0;
-      const finalSteps = finalDigits
-        .map((digit, index) => {
-          finalSum += parseInt(digit);
-          if (index === finalDigits.length - 1) {
-            return `${digit} = ${finalSum}`;
-          }
-          return digit;
-        })
-        .join(" + ");
-      dateOfBirthCalculation += ` → ${finalSteps}`;
-      dateOfBirthNumber = finalSum;
-    } else {
-      dateOfBirthNumber = reducedSum;
-    }
   } else {
     dateOfBirthCalculation = `${day}`;
-  }
-
-  // Special case for 13
-  if (day === 13) {
-    dateOfBirthCalculation = "1 + 3 = 4";
-    dateOfBirthNumber = 4;
   }
 
   // Calculate date and month sum with detailed steps
@@ -194,7 +169,7 @@ export function calculatePersonSoulNumber(personNum) {
         <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
-              <h4 class="text-lg font-semibold text-gray-100">Сума от дата и месец</h4>
+              <h4 class="text-lg font-semibold text-gray-100">Лично число</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
