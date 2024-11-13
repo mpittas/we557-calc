@@ -50,12 +50,49 @@ export function calculatePersonSoulNumber(personNum) {
   const initialSum = calculateInitialSum(day, month, year);
   const soulNumber = calculateSoulNumber(initialSum);
 
-  // Calculate date of birth number
+  // Calculate date of birth number with detailed steps
   let dateOfBirthNumber = day;
-  let dateOfBirthCalculation = `${day}`;
-  if (dateOfBirthNumber === 13) {
-    dateOfBirthNumber = 1 + 3;
+  let dateOfBirthCalculation = "";
+
+  if (day > 9) {
+    const digits = day.toString().split("");
+    let reducedSum = 0;
+    dateOfBirthCalculation = digits
+      .map((digit, index) => {
+        reducedSum += parseInt(digit);
+        if (index === digits.length - 1) {
+          return `${digit} = ${reducedSum}`;
+        }
+        return digit;
+      })
+      .join(" + ");
+
+    // If still greater than 9, reduce again
+    if (reducedSum > 9) {
+      const finalDigits = reducedSum.toString().split("");
+      let finalSum = 0;
+      const finalSteps = finalDigits
+        .map((digit, index) => {
+          finalSum += parseInt(digit);
+          if (index === finalDigits.length - 1) {
+            return `${digit} = ${finalSum}`;
+          }
+          return digit;
+        })
+        .join(" + ");
+      dateOfBirthCalculation += ` → ${finalSteps}`;
+      dateOfBirthNumber = finalSum;
+    } else {
+      dateOfBirthNumber = reducedSum;
+    }
+  } else {
+    dateOfBirthCalculation = `${day}`;
+  }
+
+  // Special case for 13
+  if (day === 13) {
     dateOfBirthCalculation = "1 + 3 = 4";
+    dateOfBirthNumber = 4;
   }
 
   // Calculate date and month sum with detailed steps
