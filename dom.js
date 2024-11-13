@@ -7,6 +7,7 @@ import {
 } from "./utils.js";
 import { fatefulNumberDescs } from "./cont/fatefulNumberDesc.js";
 import { soulNumberDescs } from "./cont/soulNumberDesc.js";
+import { personalNumberDescs } from "./cont/personalNumberDesc.js";
 
 let currentLang = "bg";
 
@@ -118,6 +119,9 @@ export function calculatePersonSoulNumber(personNum) {
     }
   }
 
+  const personalNumberDescription =
+    personalNumberDescs[dateMonthSum] || "Описание не е налично.";
+
   resultDiv.innerHTML = `
     <div>
       <div class="flex items-center justify-between pb-4">
@@ -194,10 +198,12 @@ export function calculatePersonSoulNumber(personNum) {
                 </div>
               </div>
             </div>
-            
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
             ${dateMonthCalculation}
+          </div>
+          <div class="mt-4 text-gray-100">
+            ${personalNumberDescription}
           </div>
         </div>
       </div>
