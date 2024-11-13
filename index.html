@@ -14,7 +14,7 @@
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       .mesh-gradient {
@@ -64,15 +64,15 @@
       id="app"
       class="flex flex-col lg:flex-row min-h-screen p-4 gap-6 max-w-[1920px] mx-auto mesh-gradient"
     >
-      <!-- Left Side - Calculator -->
-      <div class="w-full lg:w-1/4 bg-white/5 rounded-xl text-white p-4 md:p-8">
+      <!-- Calculator Section -->
+      <div class="w-full lg:w-1/4 glass text-white p-4 md:p-8">
         <h1
           class="text-2xl md:text-3xl text-white font-bold text-center mb-6 md:mb-8"
         >
           Калкулатор
         </h1>
 
-        <!-- Person 1 Inputs -->
+        <!-- Person Inputs -->
         <div class="space-y-4 mb-8">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
             <!-- Name input with label -->
@@ -83,7 +83,7 @@
               <input
                 type="text"
                 id="name1"
-                placeholder="Въведете първо име"
+                placeholder="Въведете име"
                 class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
@@ -142,92 +142,12 @@
             Изчисли
           </button>
         </div>
-
-        <!-- Person 2 Inputs -->
-        <div class="space-y-4">
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
-            <!-- Name input with label -->
-            <div class="col-span-2 md:col-span-4 space-y-1">
-              <label for="name2" class="block text-sm font-medium text-gray-200"
-                >Име</label
-              >
-              <input
-                type="text"
-                id="name2"
-                placeholder="Въведете второ име"
-                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
-              />
-            </div>
-
-            <!-- Day input with label -->
-            <div class="space-y-1">
-              <label for="day2" class="block text-sm font-medium text-gray-200"
-                >Ден</label
-              >
-              <input
-                type="number"
-                id="day2"
-                placeholder="Ден"
-                min="1"
-                max="31"
-                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
-              />
-            </div>
-
-            <!-- Month input with label -->
-            <div class="space-y-1">
-              <label
-                for="month2"
-                class="block text-sm font-medium text-gray-200"
-                >Месец</label
-              >
-              <input
-                type="number"
-                id="month2"
-                placeholder="Месец"
-                min="1"
-                max="12"
-                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
-              />
-            </div>
-
-            <!-- Year input with label -->
-            <div class="col-span-2 space-y-1">
-              <label for="year2" class="block text-sm font-medium text-gray-200"
-                >Година</label
-              >
-              <input
-                type="number"
-                id="year2"
-                placeholder="Година"
-                min="1000"
-                max="9999"
-                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
-              />
-            </div>
-          </div>
-          <button
-            id="calculate2"
-            class="w-full text-white py-2 md:violet-600-4 bg-violet-600 hover:bg-violet-700 transition-colors font-semibold text-sm md:text-base rounded-lg"
-          >
-            Изчисли
-          </button>
-        </div>
       </div>
 
-      <!-- Right Side - Results -->
+      <!-- Results Section -->
       <div class="w-full lg:w-3/4 space-y-6">
-        <div class="bg-white/5 rounded-xl text-white p-4 md:p-8 h-full">
-          <!-- Results Cards -->
-          <div class="flex flex-col md:flex-row gap-4 md:gap-6 mb-4 md:mb-16">
-            <div id="result1" class="flex-1"></div>
-            <div id="result2" class="flex-1"></div>
-          </div>
-
-          <!-- Compatibility Section -->
-          <div id="compatibility" class="flex-1">
-            <!-- Content will be dynamically inserted here -->
-          </div>
+        <div class="glass text-white p-4 md:p-8 h-full">
+          <div id="result1"></div>
         </div>
       </div>
     </div>
