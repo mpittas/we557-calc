@@ -21,7 +21,10 @@ export function calculateSoulNumber(num) {
 }
 
 export function formatCalculation(dateString, initialSum, soulNumber) {
-  // First equation: showing all digits being added with actual sum
+  //==============================================
+  // FIRST EQUATION: DATE STRING CALCULATION
+  // Example: 1 + 5 + 1 + 9 + 9 + 0 = 25
+  //==============================================
   const digits = dateString.split("");
   let runningSum = 0;
   const firstSteps = digits
@@ -34,9 +37,12 @@ export function formatCalculation(dateString, initialSum, soulNumber) {
     })
     .join(" + ");
 
-  // Second equation: if needed, show the actual addition of digits
   let secondEquation = "";
   if (runningSum > 12) {
+    //==============================================
+    // SECOND EQUATION: FIRST REDUCTION
+    // Example: 2 + 5 = 7
+    //==============================================
     const initialSumDigits = runningSum.toString().split("");
     let secondRunningSum = 0;
     const secondSteps = initialSumDigits
@@ -50,8 +56,11 @@ export function formatCalculation(dateString, initialSum, soulNumber) {
       .join(" + ");
     secondEquation = ` → ${secondSteps}`;
 
-    // If we need a third reduction
     if (secondRunningSum > 12) {
+      //==============================================
+      // THIRD EQUATION: SECOND REDUCTION
+      // Example: 1 + 3 = 4
+      //==============================================
       const secondSumDigits = secondRunningSum.toString().split("");
       let finalSum = 0;
       const finalSteps = secondSumDigits
