@@ -187,6 +187,9 @@ export function calculatePersonSoulNumber(personNum) {
         <div class="bg-white/5 backdrop-blur rounded-xl p-5">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
+                ${dateMonthSum}
+              </div>
               <h4 class="text-lg font-semibold text-gray-100">Лично число</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,9 +200,7 @@ export function calculatePersonSoulNumber(personNum) {
                 </div>
               </div>
             </div>
-            <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
-              ${dateMonthSum}
-            </div>
+            
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
             ${dateMonthCalculation}
