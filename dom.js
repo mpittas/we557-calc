@@ -5,6 +5,8 @@ import {
   formatCalculation,
   validateBirthDate,
 } from "./utils.js";
+import { fatefulNumberDescs } from "./cont/fatefulNumberDesc.js";
+import { soulNumberDescs } from "./cont/soulNumberDesc.js";
 
 let currentLang = "bg";
 
@@ -49,6 +51,8 @@ export function calculatePersonSoulNumber(personNum) {
   const dateString = `${day}${month}${year}`;
   const initialSum = calculateInitialSum(day, month, year);
   const soulNumber = calculateSoulNumber(initialSum);
+  const fatefulNumberDescription =
+    fatefulNumberDescs[soulNumber] || "Описание не е налично.";
 
   // Calculate date of birth number with detailed steps
   let dateOfBirthNumber = day;
@@ -66,9 +70,11 @@ export function calculatePersonSoulNumber(personNum) {
         return digit;
       })
       .join(" + ");
-  } else {
-    dateOfBirthCalculation = `${day}`;
+    dateOfBirthNumber = reducedSum;
   }
+
+  const soulNumberDescription =
+    soulNumberDescs[dateOfBirthNumber] || "Описание не е налично.";
 
   // Calculate date and month sum with detailed steps
   let dateMonthSum = 0;
@@ -112,21 +118,6 @@ export function calculatePersonSoulNumber(personNum) {
     }
   }
 
-  const soulNumberDescriptions = {
-    1: "Характер: Хората с това число са лидери по природа, независими и решителни. Те са уверени и обичат да започват нови начинания. Тяхната целеустременост често ги води към успех.",
-    2: "Характер: Дипломатични, спокойни и хармонични, хората с число 2 са способни да изграждат добри отношения и често имат силна интуиция. Те ценят сътрудничеството и са добри слушатели.",
-    3: "Характер: Креативни, общителни и вдъхновяващи, тези хора обичат да се изразяват и често са център на внимание. Имат дарба за комуникация и заразяват другите с позитивността си.",
-    4: "Характер: Надеждни, трудолюбиви и практични, тези хора са силно организирани и ценят стабилността. Често се стремят към сигурност и предпочитат стабилни основи във всичко, което правят.",
-    5: "Характер: Тези хора търсят свобода, обичат промените и имат силно желание за нови преживявания. Те са динамични, социални и нетърпеливи да опитват различни неща.",
-    6: "Характер: Отговорни, грижовни и ориентирани към семейството, хората с това число обичат да помагат на другите. Те се стремят към хармония и често се ангажират с подкрепа на близките си.",
-    7: "Характер: Интровертни, аналитични и духовно настроени, тези хора обичат да изследват дълбоки теми и да разсъждават. Те са мислители и често се стремят към самоусъвършенстване и мъдрост.",
-    8: "Характер: Амбициозни и фокусирани върху успеха, хората с число 8 често се стремят към финансово благополучие и власт. Те са практични, стабилни и добри лидери с усет за бизнес.",
-    9: "Характер: Алтруистични, идеалисти и ориентирани към световното добро, тези хора се стремят да помагат на другите и да подобрят света. Те са състрадателни и вдъхновяващи.",
-    10: "Характер: Това число съчетава качествата на 1 и 0, придавайки както независимост, така и креативност. Хората с това число често са амбициозни, новатори и обичат да реализират оригинални идеи.",
-    11: "Характер: Хората с това число са високо интуитивни, вдъхновяващи и често се разглеждат като духовни учители. Те притежават силна интуиция и могат да се чувстват призвани да водят другите с вдъхновение и мъдрост.",
-    12: "Характер: Това число комбинира качествата на 1 и 2 – лидерство и дипломатичност. Хората с число 12 са социални, креативни и умеят да работят както самостоятелно, така и в екип. Те често вдъхновяват другите със своята харизма и стремеж към хармония.",
-  };
-
   resultDiv.innerHTML = `
     <div>
       <div class="flex items-center justify-between pb-4">
@@ -156,7 +147,7 @@ export function calculatePersonSoulNumber(personNum) {
             ${formatCalculation(dateString, initialSum, soulNumber)}
           </div>
           <div class="mt-4 text-gray-100">
-            ${soulNumberDescriptions[soulNumber] || "Описание не е налично."}
+            ${fatefulNumberDescription}
           </div>
         </div>
 
@@ -180,6 +171,9 @@ export function calculatePersonSoulNumber(personNum) {
           </div>
           <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
             ${dateOfBirthCalculation}
+          </div>
+          <div class="mt-4 text-gray-100">
+            ${soulNumberDescription}
           </div>
         </div>
 
