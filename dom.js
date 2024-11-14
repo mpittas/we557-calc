@@ -59,7 +59,11 @@ export function calculatePersonSoulNumber(personNum) {
   let dateOfBirthNumber = day;
   let dateOfBirthCalculation = "";
 
-  if (day > 9) {
+  // Always show the calculation, even for single digits
+  if (day <= 9) {
+    dateOfBirthCalculation = `${day} = ${day}`;
+    dateOfBirthNumber = day;
+  } else {
     const digits = day.toString().split("");
     let reducedSum = 0;
     dateOfBirthCalculation = digits
@@ -72,6 +76,23 @@ export function calculatePersonSoulNumber(personNum) {
       })
       .join(" + ");
     dateOfBirthNumber = reducedSum;
+
+    // If still greater than 9, reduce again
+    if (reducedSum > 9) {
+      const finalDigits = reducedSum.toString().split("");
+      let finalSum = 0;
+      const finalSteps = finalDigits
+        .map((digit, index) => {
+          finalSum += parseInt(digit);
+          if (index === finalDigits.length - 1) {
+            return `${digit} = ${finalSum}`;
+          }
+          return digit;
+        })
+        .join(" + ");
+      dateOfBirthCalculation += ` → ${finalSteps}`;
+      dateOfBirthNumber = finalSum;
+    }
   }
 
   const soulNumberDescription =
@@ -214,6 +235,12 @@ export function calculatePersonSoulNumber(personNum) {
 // Initialize event listeners when the page loads
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Script loaded");
+
+  // Prepopulate input fields with default values
+  document.getElementById("name1").value = "Име"; // Default name
+  document.getElementById("day1").value = "1"; // Default day
+  document.getElementById("month1").value = "1"; // Default month
+  document.getElementById("year1").value = "2000"; // Default year
 
   // Test DOM element access
   const elements = ["name1", "day1", "month1", "year1", "calculate1"];
