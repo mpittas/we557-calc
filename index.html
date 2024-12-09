@@ -9,6 +9,15 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("d9rrB3P0ZNqywRS94");
+      })();
+    </script>
     <style>
       .glass {
         background: rgba(255, 255, 255, 0.1);
@@ -131,6 +140,30 @@
                 placeholder="Година"
                 min="1000"
                 max="9999"
+                class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
+              />
+            </div>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center">
+              <input
+                type="checkbox"
+                id="emailResultsCheckbox"
+                class="w-4 h-4 text-violet-600 bg-white/10 border-0 rounded focus:ring-2 focus:ring-white/50"
+              />
+              <label
+                for="emailResultsCheckbox"
+                class="ml-2 text-sm font-medium text-gray-200"
+              >
+                Изпрати ми резултатите по имейл
+              </label>
+            </div>
+
+            <div id="emailInputContainer" class="hidden">
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="Въведете имейл адрес"
                 class="w-full p-2 md:p-3 bg-white/10 hover:bg-white/15 focus:bg-white/20 border-0 rounded-lg focus:ring-2 focus:ring-white/50 outline-none text-sm md:text-base text-white placeholder-white/50 transition-all duration-200"
               />
             </div>
