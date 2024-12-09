@@ -347,11 +347,21 @@ function calculatePersonSoulNumber(personNum) {
       return;
     }
 
-    // Prepare the email content
+    // Get birth time if checkbox is checked
+    const birthTimeCheckbox = document.getElementById("birthTimeCheckbox");
+    let birthTimeInfo = "";
+    if (birthTimeCheckbox.checked) {
+      const birthTime = document.getElementById("birthTimeInput").value;
+      if (birthTime) {
+        birthTimeInfo = `\nЧас на раждане: ${birthTime}`;
+      }
+    }
+
+    // Prepare the email content with optional birth time
     const emailContent = `
       Здравейте, ${name},
 
-      Вашите резултати:
+      Вашите резултати:${birthTimeInfo}
 
       Съдбовно число (${soulNumber}):
       ${fatefulNumberDescription}
@@ -400,6 +410,18 @@ document.addEventListener("DOMContentLoaded", () => {
       emailInputContainer.style.display = "block";
     } else {
       emailInputContainer.style.display = "none";
+    }
+  });
+
+  // Add birth time checkbox handler
+  const birthTimeCheckbox = document.getElementById("birthTimeCheckbox");
+  const birthTimeContainer = document.getElementById("birthTimeContainer");
+
+  birthTimeCheckbox.addEventListener("change", function () {
+    if (this.checked) {
+      birthTimeContainer.style.display = "block";
+    } else {
+      birthTimeContainer.style.display = "none";
     }
   });
 });
