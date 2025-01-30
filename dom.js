@@ -133,6 +133,79 @@ const soulNumberDescs = {
   9: "Характер: Желание за хуманитарност, състрадание и помощ към другите. Тези хора са идеалисти и често се стремят да направят света по-добро място. Те са алтруистични, жертвоготовни и имат желание да служат на обществото.",
 };
 
+const vowelNumberDescs = {
+  1: "Характер: Не е предоставено",
+  2: "Характер: Не е предоставено",
+  3: "Характер: Не е предоставено",
+  4: "Характер: Не е предоставено",
+  5: "Характер: Не е предоставено",
+  6: "Характер: Не е предоставено",
+  7: "Характер: Не е предоставено",
+  8: "Характер: Не е предоставено",
+  9: "Характер: Не е предоставено",
+  10: "Характер: Не е предоставено",
+  11: "Характер: Не е предоставено",
+  22: "Характер: Не е предоставено",
+  33: "Характер: Не е предоставено",
+};
+
+function calculateVowelNumber(name) {
+  const vowelValues = {
+    А: 1,
+    а: 1,
+    Е: 6,
+    е: 6,
+    И: 9,
+    и: 9,
+    О: 6,
+    о: 6,
+    У: 2,
+    у: 2,
+    Ъ: 9,
+    ъ: 9,
+  };
+
+  const vowels = name.split("").filter((char) => vowelValues[char]);
+  const calculation = vowels.map((v) => `${v}(${vowelValues[v]})`).join(" + ");
+  const sum = vowels.reduce((acc, char) => acc + (vowelValues[char] || 0), 0);
+
+  // Special cases for master numbers
+  if (sum === 22 || sum === 33) {
+    return {
+      number: sum,
+      calculation: `Намерени гласни: ${vowels.join(
+        ", "
+      )}\nИзчисление: ${calculation} = ${sum}`,
+      vowels: vowels.join(", "),
+    };
+  }
+
+  // Reduce if greater than 11 and not 22 or 33
+  if (sum > 11 && sum !== 22 && sum !== 33) {
+    const reducedSum = String(sum)
+      .split("")
+      .reduce((a, b) => a + parseInt(b), 0);
+    return {
+      number: reducedSum,
+      calculation: `Намерени гласни: ${vowels.join(
+        ", "
+      )}\nИзчисление: ${calculation} = ${sum}\nРедукция: ${sum} → ${sum
+        .toString()
+        .split("")
+        .join(" + ")} = ${reducedSum}`,
+      vowels: vowels.join(", "),
+    };
+  }
+
+  return {
+    number: sum,
+    calculation: `Намерени гласни: ${vowels.join(
+      ", "
+    )}\nИзчисление: ${calculation} = ${sum}`,
+    vowels: vowels.join(", "),
+  };
+}
+
 function calculatePersonSoulNumber(personNum) {
   const dayInput = document.getElementById(`day${personNum}`);
   const monthInput = document.getElementById(`month${personNum}`);
@@ -248,6 +321,11 @@ function calculatePersonSoulNumber(personNum) {
   const personalNumberDescription =
     personalNumberDescs[dateMonthSum] || "Описание не е налично.";
 
+  // Add after the existing calculations but before creating the HTML
+  const vowelResult = calculateVowelNumber(name);
+  const vowelNumberDescription =
+    vowelNumberDescs[vowelResult.number] || "Описание не е налично.";
+
   resultDiv.innerHTML = `
     <div>
       <div class="flex items-center justify-between pb-4">
@@ -332,6 +410,32 @@ function calculatePersonSoulNumber(personNum) {
             ${personalNumberDescription}
           </div>
         </div>
+
+        <!-- Fourth Calculation (Vowel Number) -->
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
+                ${vowelResult.number}
+              </div>
+              <h4 class="text-lg font-semibold text-gray-100">Число на гласните</h4>
+              <div class="group relative">
+                <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
+                </svg>
+                <div class="invisible group-hover:visible absolute left-0 top-6 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10">
+                  Сборът от числовите стойности на гласните в името
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100 whitespace-pre-line">${
+            vowelResult.calculation
+          }</div>
+          <div class="mt-4 text-gray-100">
+            ${vowelNumberDescription}
+          </div>
+        </div>
       </div>
     </div>
   `;
@@ -371,6 +475,9 @@ function calculatePersonSoulNumber(personNum) {
 
       Лично число (${dateMonthSum}):
       ${personalNumberDescription}
+
+      Число на гласните (${vowelResult.number}):
+      ${vowelNumberDescription}
     `;
 
     // Send the email using EmailJS
