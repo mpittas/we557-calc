@@ -8,39 +8,6 @@ const translations = {
 
 const currentLang = "bg";
 
-const bulgarianAlphabetMap = {
-  А: 1,
-  Б: 2,
-  В: 3,
-  Г: 4,
-  Д: 5,
-  Е: 6,
-  Ж: 7,
-  З: 8,
-  И: 9,
-  Й: 10,
-  К: 11,
-  Л: 12,
-  М: 13,
-  Н: 14,
-  О: 15,
-  П: 16,
-  Р: 17,
-  С: 18,
-  Т: 19,
-  У: 20,
-  Ф: 21,
-  Х: 22,
-  Ц: 23,
-  Ч: 24,
-  Ш: 25,
-  Щ: 26,
-  Ъ: 27,
-  Ь: 28,
-  Ю: 29,
-  Я: 30,
-};
-
 function calculateInitialSum(day, month, year) {
   const dateString = `${day}${month}${year}`;
   return dateString.split("").reduce((a, b) => a + parseInt(b), 0);
@@ -166,27 +133,6 @@ const soulNumberDescs = {
   9: "Характер: Желание за хуманитарност, състрадание и помощ към другите. Тези хора са идеалисти и често се стремят да направят света по-добро място. Те са алтруистични, жертвоготовни и имат желание да служат на обществото.",
 };
 
-function calculateNameNumber(name) {
-  const upperName = name.toUpperCase();
-  let calculation = "";
-  let sum = 0;
-
-  // Calculate initial sum and build calculation string
-  for (let i = 0; i < upperName.length; i++) {
-    const letter = upperName[i];
-    const number = bulgarianAlphabetMap[letter];
-
-    if (number) {
-      sum += number;
-      calculation += `${letter}=${number}`;
-      if (i < upperName.length - 1) calculation += " + ";
-    }
-  }
-  calculation += ` = ${sum}`;
-
-  return { calculation, finalSum: sum };
-}
-
 function calculatePersonSoulNumber(personNum) {
   const dayInput = document.getElementById(`day${personNum}`);
   const monthInput = document.getElementById(`month${personNum}`);
@@ -302,9 +248,6 @@ function calculatePersonSoulNumber(personNum) {
   const personalNumberDescription =
     personalNumberDescs[dateMonthSum] || "Описание не е налично.";
 
-  const { calculation: nameCalculation, finalSum: nameNumber } =
-    calculateNameNumber(name);
-
   resultDiv.innerHTML = `
     <div>
       <div class="flex items-center justify-between pb-4">
@@ -389,32 +332,6 @@ function calculatePersonSoulNumber(personNum) {
             ${personalNumberDescription}
           </div>
         </div>
-
-        <!-- Fourth Calculation (Name Number) -->
-        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
-          <div class="flex items-center gap-2 mb-4">
-            <div class="flex items-center gap-3">
-              <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
-                ${calculateNameNumber(name).finalSum}
-              </div>
-              <h4 class="text-lg font-semibold text-gray-100">Число на името</h4>
-              <div class="group relative">
-                <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
-                </svg>
-                <div class="invisible group-hover:visible absolute left-0 top-6 w-64 p-2 bg-gray-800 text-white text-sm rounded shadow-lg z-10">
-                  Сборът от числовите стойности на буквите в името
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="font-mono bg-black/20 p-4 rounded-lg text-gray-100">
-            ${calculateNameNumber(name).calculation}
-          </div>
-          <div class="mt-4 text-gray-100">
-            Вашето число на името показва вашата същност и потенциал. То разкрива вашите вродени таланти и начина, по който другите ви възприемат. Това число влияе върху вашата съдба и житейски път.
-          </div>
-        </div>
       </div>
     </div>
   `;
@@ -454,9 +371,6 @@ function calculatePersonSoulNumber(personNum) {
 
       Лично число (${dateMonthSum}):
       ${personalNumberDescription}
-
-      Имено число (${nameNumber}):
-      ${nameCalculation}
     `;
 
     // Send the email using EmailJS
