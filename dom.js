@@ -8,6 +8,13 @@ const translations = {
 
 const currentLang = "bg";
 
+const displayOptions = {
+  fatefulNumber: false, // Съдбовно число
+  soulNumber: false, // Число на душата
+  personalNumber: false, // Лично число
+  heartDesireNumber: true, // Число на желанието на сърцето
+};
+
 function calculateInitialSum(day, month, year) {
   const dateString = `${day}${month}${year}`;
   return dateString.split("").reduce((a, b) => a + parseInt(b), 0);
@@ -334,7 +341,9 @@ function calculatePersonSoulNumber(personNum) {
       
       <div class="space-y-6">
         <!-- First Calculation -->
-        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5 ${
+          displayOptions.fatefulNumber ? "" : "hidden"
+        }">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
@@ -360,7 +369,9 @@ function calculatePersonSoulNumber(personNum) {
         </div>
 
         <!-- Second Calculation -->
-        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5 ${
+          displayOptions.soulNumber ? "" : "hidden"
+        }">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
@@ -386,7 +397,9 @@ function calculatePersonSoulNumber(personNum) {
         </div>
 
         <!-- Third Calculation -->
-        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5 ${
+          displayOptions.personalNumber ? "" : "hidden"
+        }">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
@@ -411,14 +424,16 @@ function calculatePersonSoulNumber(personNum) {
           </div>
         </div>
 
-        <!-- Fourth Calculation (Vowel Number) -->
-        <div class="bg-white/5 backdrop-blur rounded-xl p-5">
+        <!-- Fourth Calculation (Heart Desire Number) -->
+        <div class="bg-white/5 backdrop-blur rounded-xl p-5 ${
+          displayOptions.heartDesireNumber ? "" : "hidden"
+        }">
           <div class="flex items-center gap-2 mb-4">
             <div class="flex items-center gap-3">
               <div class="w-6 h-6 flex items-center justify-center bg-violet-600 text-white text-sm rounded-full font-bold">
                 ${vowelResult.number}
               </div>
-              <h4 class="text-lg font-semibold text-gray-100">Число на гласните</h4>
+              <h4 class="text-lg font-semibold text-gray-100">Число на желанието на сърцето</h4>
               <div class="group relative">
                 <svg class="w-4 h-4 text-gray-400 cursor-help" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M12 21a9 9 0 100-18 9 9 0 000 18z" />
@@ -476,7 +491,7 @@ function calculatePersonSoulNumber(personNum) {
       Лично число (${dateMonthSum}):
       ${personalNumberDescription}
 
-      Число на гласните (${vowelResult.number}):
+      Число на желанието на сърцето (${vowelResult.number}):
       ${vowelNumberDescription}
     `;
 
