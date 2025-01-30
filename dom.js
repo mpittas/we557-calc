@@ -187,6 +187,17 @@ function calculateVowelNumber(name) {
     };
   }
 
+  // Special case for 10
+  if (sum === 10) {
+    return {
+      number: 1, // Reduced to 1
+      calculation: `Намерени гласни: ${vowels.join(
+        ", "
+      )}\nИзчисление: ${calculation} = ${sum}\nРедукция: 1 + 0 = 1`,
+      vowels: vowels.join(", "),
+    };
+  }
+
   // Reduce if greater than 11 and not 22 or 33
   if (sum > 11 && sum !== 22 && sum !== 33) {
     const reducedSum = String(sum)
