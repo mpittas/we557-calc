@@ -15,6 +15,8 @@ const displayOptions = {
   heartDesireNumber: true, // Число на желанието на сърцето
 };
 
+const correctPassword = "ew557-calc"; // Change this to your desired password
+
 function calculateInitialSum(day, month, year) {
   const dateString = `${day}${month}${year}`;
   return dateString.split("").reduce((a, b) => a + parseInt(b), 0);
@@ -567,4 +569,30 @@ document.addEventListener("DOMContentLoaded", () => {
       birthTimeContainer.style.display = "none";
     }
   });
+
+  document.getElementById('loginButton').addEventListener('click', checkPassword);
+  document.getElementById('passwordInput').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      checkPassword();
+    }
+  });
+
+  function checkPassword() {
+    const passwordInput = document.getElementById('passwordInput');
+    const loginOverlay = document.getElementById('loginOverlay');
+    
+    if (passwordInput.value === correctPassword) {
+      loginOverlay.style.display = 'none';
+      // Optional: Save to session storage so user doesn't need to login again if page refreshes
+      sessionStorage.setItem('isLoggedIn', 'true');
+    } else {
+      alert('Грешна парола!');
+      passwordInput.value = '';
+    }
+  }
+
+  // Check if user is already logged in
+  if (sessionStorage.getItem('isLoggedIn') === 'true') {
+    document.getElementById('loginOverlay').style.display = 'none';
+  }
 });
